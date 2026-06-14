@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick's Mobile Mechanic | Mobile Auto Repair Near You</title>
+    <meta name="description" content="Mobile mechanic serving Washington. Fast diagnostics, honest repairs for cars, trucks, and semi trucks. We come to you. Call (360) 861-0024.">
+    <style>
+        body {margin:0;font-family:Arial, sans-serif;background:#0b0b0b;color:white;scroll-behavior:smooth;line-height:1.6;}
+        .main-nav {background:#111;padding:15px 30px;position:sticky;top:0;z-index:1000;box-shadow:0 4px 15px rgba(0,0,0,0.6);}
+        .nav-container {display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;}
+        .logo {font-weight:bold;font-size:24px;}
+        .orange {color:#ff6600;}
+        .nav-phone {color:#ff6600;text-decoration:none;font-weight:bold;font-size:19px;}
+
+        .hero {text-align:center;padding:140px 20px;background:linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;}
+        .hero h1 {font-size:58px;margin:0;}
+        .hero-sub {margin:25px 0;color:#ccc;font-size:20px;max-width:700px;margin-left:auto;margin-right:auto;}
+
+        .cta-button {
+            background:#ff6600;
+            padding:16px 32px;
+            color:white;
+            text-decoration:none;
+            border:none;
+            cursor:pointer;
+            font-size:19px;
+            border-radius:8px;
+            margin-top:20px;
+            display:inline-block;
+            font-weight:bold;
+        }
+
+        .services-grid {display:flex;gap:25px;padding:70px 20px;justify-content:center;flex-wrap:wrap;max-width:1200px;margin:0 auto;}
+        .card {background:#111;padding:30px;border-radius:12px;width:280px;text-align:center;transition:0.3s;box-shadow:0 4px 15px rgba(0,0,0,0.4);}
+        .card:hover {transform:translateY(-8px);}
+
+        .section-title {text-align:center;margin:70px 0 40px;font-size:32px;color:#ff6600;}
+
+        .review-grid {display:flex;gap:25px;justify-content:center;padding:50px 20px;flex-wrap:wrap;max-width:1200px;margin:0 auto;}
+        .review {background:#111;padding:25px;border-radius:12px;width:270px;font-style:italic;box-shadow:0 4px 15px rgba(0,0,0,0.4);}
+
+        .why-list {list-style:none;text-align:center;padding:0;max-width:600px;margin:0 auto;}
+        .why-list li {margin:15px 0;font-size:19px;}
+
+        .process-grid {display:flex;justify-content:center;gap:50px;padding:50px 20px;flex-wrap:wrap;max-width:1200px;margin:0 auto;}
+        .step {text-align:center;max-width:220px;}
+
+        .quote-section {padding:80px 20px;background:#111;text-align:center;}
+        .quote-box {max-width:620px;margin:0 auto;background:#1f1f1f;padding:45px;border-radius:20px;}
+
+        input, select, textarea, button {
+            width:100%;padding:16px;margin:12px 0;background:#222;border:2px solid #444;border-radius:10px;color:white;font-size:16px;
+        }
+        input:focus, select:focus, textarea:focus {border-color:#ff6600;}
+
+        .vin-row {display:flex;gap:10px;}
+        .vin-row input {flex:1;}
+        #decodeVinBtn {background:#333;color:white;width:auto;padding:0 20px;cursor:pointer;}
+
+        #quoteResult {margin-top:30px;display:none;background:#2a2a2a;padding:25px;border-radius:12px;border-left:6px solid #ff6600;text-align:left;}
+
+        .contact-links {
+            display:flex;gap:12px;margin-top:25px;flex-wrap:wrap;
+        }
+        .contact-links a {
+            background:#ff6600;
+            color:white;
+            padding:16px 20px;
+            border-radius:8px;
+            text-decoration:none;
+            font-weight:bold;
+            text-align:center;
+            flex:1;
+        }
+
+        .sticky-cta {
+            position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+            background:#ff6600;color:white;padding:16px 32px;border-radius:50px;
+            font-size:20px;font-weight:bold;box-shadow:0 6px 20px rgba(255,102,0,0.5);
+            z-index:999;display:none;
+        }
+
+        .footer {text-align:center;padding:60px 20px;background:#080808;color:#777;}
+        .footer a {color:#ff6600;}
+    </style>
+</head>
+<body>
+
+<nav class="main-nav">
+    <div class="nav-container">
+        <span class="logo">RICK'S <span class="orange">MOBILE MECHANIC</span></span>
+        <a href="tel:3608610024" class="nav-phone">CALL NOW: (360) 861-0024</a>
+    </div>
+</nav>
+
+<div id="weatherBanner" style="background:#1a1a1a;padding:12px;text-align:center;font-size:15px;">Loading local weather...</div>
+
+<header class="hero">
+    <h1>MOBILE AUTO REPAIR</h1>
+    <p class="hero-sub">We come to you in Washington State.<br>Fast diagnostics. Honest repairs. Cars • Trucks • Semi Trucks</p>
+    <a href="#quote-section" class="cta-button">GET A FAST QUOTE</a>
+</header>
+
+<section class="services-grid">
+    <div class="card"><h3>🔧 Diagnostics</h3><p>Dealer-level scanning and troubleshooting.</p></div>
+    <div class="card"><h3>🛠️ Repairs</h3><p>Brakes, engines, suspension, electrical & more.</p></div>
+    <div class="card"><h3>🚗 Roadside</h3><p>No-starts, battery, breakdowns — we come rescue you.</p></div>
+</section>
+
+<section>
+    <h2 class="section-title">HOW IT WORKS</h2>
+    <div class="process-grid">
+        <div class="step"><h3>1. Call or Request Quote</h3><p>Tell me what's going on</p></div>
+        <div class="step"><h3>2. I Come to You</h3><p>Fully equipped mobile van</p></div>
+        <div class="step"><h3>3. Fixed on Site</h3><p>No tow • Most jobs same day</p></div>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">WHY CHOOSE RICK'S</h2>
+    <ul class="why-list">
+        <li>✔ Master Mechanic with 15+ Years Experience</li>
+        <li>✔ True Mobile Service — We Come To You</li>
+        <li>✔ Honest & Transparent Pricing</li>
+        <li>✔ Fast Response Across Washington</li>
+        <li>✔ 90-Day Warranty on Parts & Labor</li>
+    </ul>
+</section>
+
+<section>
+    <h2 class="section-title">WHAT CUSTOMERS SAY</h2>
+    <div class="review-grid">
+        <div class="review">"Saved me hundreds on a tow and fixed it right in my driveway."<br><strong>— Sarah M., Vancouver WA</strong></div>
+        <div class="review">"Fast, reliable, and fair pricing. Best mobile mechanic I've used."<br><strong>— Mike Thompson, Battle Ground</strong></div>
+        <div class="review">"Did my pre-purchase inspection and saved me thousands."<br><strong>— Jessica R., Ridgefield</strong></div>
+    </div>
+</section>
+
+<section id="quote-section" class="quote-section">
+    <div class="quote-box">
+        <h2 class="section-title" style="margin-top:0;">GET A FAST QUOTE</h2>
+        <form id="quoteForm">
+            <div class="vin-row">
+                <input type="text" id="vin" placeholder="Enter VIN (optional)" maxlength="17">
+                <button type="button" id="decodeVinBtn">Decode VIN</button>
+            </div>
+
+            <input type="text" id="year" placeholder="Year (e.g. 1995 or 2024)" required>
+
+            <select id="vehicleType" required>
+                <option value="">Select Vehicle Type</option>
+                <option value="car">Car</option>
+                <option value="truck">Truck / SUV</option>
+                <option value="semi">Semi Truck / Trailer</option>
+            </select>
+
+            <input type="text" id="make" placeholder="Make (e.g. Ford, Toyota, Freightliner)" required>
+            <input type="text" id="model" placeholder="Model (e.g. F-150, Cascadia, Camry)" required>
+            <input type="text" id="engine" placeholder="Engine (optional, e.g. 5.7L, 6.7L Cummins)">
+
+            <textarea id="issue" placeholder="Describe the issue (brakes squeaking, check engine light, won't start, oil change, etc.)" required></textarea>
+
+            <button type="submit" class="cta-button">GET ESTIMATE NOW</button>
+        </form>
+
+        <div id="quoteResult"></div>
+    </div>
+</section>
+
+<footer class="footer">
+    Rick's Mobile Mechanic LLC • Serving Washington State<br>
+    Call or Text: <a href="tel:3608610024">(360) 861-0024</a>
+</footer>
+
+<div class="sticky-cta" onclick="window.location.href='tel:3608610024'">
+    📞 Call Rick Now – (360) 861-0024
+</div>
+
+<script>
+// VIN Decoder
+document.getElementById("decodeVinBtn").addEventListener("click", async function() {
+    const vin = document.getElementById("vin").value.trim().toUpperCase();
+    if (vin.length !== 17) {
+        alert("Please enter a full 17-character VIN");
+        return;
+    }
+    this.textContent = "Decoding...";
+    this.disabled = true;
+
+    try {
+        const res = await fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/${vin}?format=json`);
+        const data = await res.json();
+        let year = "", make = "", model = "";
+        data.Results.forEach(item => {
+            if (item.Variable === "Model Year") year = item.Value;
+            if (item.Variable === "Make") make = item.Value;
+            if (item.Variable === "Model") model = item.Value;
+        });
+        if (year) document.getElementById("year").value = year;
+        if (make) document.getElementById("make").value = make;
+        if (model) document.getElementById("model").value = model;
+        alert(`Decoded: ${year} ${make} ${model}`);
+    } catch (e) {
+        alert("VIN lookup failed. Please fill manually.");
+    }
+    this.textContent = "Decode VIN";
+    this.disabled = false;
+});
+
+// Weather
+async function loadWeather() {
+    const banner = document.getElementById("weatherBanner");
+    try {
+        const res = await fetch("https://api.weather.gov/points/45.6387,-122.6615");
+        const point = await res.json();
+        const forecastRes = await fetch(point.properties.forecast);
+        const forecast = await forecastRes.json();
+        const today = forecast.properties.periods[0];
+        banner.textContent = `Current weather near Vancouver, WA: ${today.temperature}°F — ${today.shortForecast}`;
+    } catch (e) {
+        banner.textContent = "Serving the Vancouver / Portland metro & surrounding Washington areas.";
+    }
+}
+window.onload = loadWeather;
+
+// Quote Form - FIXED
+document.getElementById("quoteForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const year = document.getElementById("year").value.trim();
+    const vehicleType = document.getElementById("vehicleType").value;
+    const make = document.getElementById("make").value.trim();
+    const model = document.getElementById("model").value.trim();
+    const engine = document.getElementById("engine").value.trim();
+    const issueText = document.getElementById("issue").value.trim();
+
+    // Basic validation
+    if (!year || !vehicleType || !make || !model || !issueText) {
+        alert("Please fill out Year, Vehicle Type, Make, Model, and Issue.");
+        return;
+    }
+
+    const issue = issueText.toLowerCase();
+
+    // Price logic (using your $125 / $175 hourly rates behind the scenes)
+    let estimate = "$280 – $480+";
+
+    if (issue.includes("diagnostic") || issue.includes("scan") || issue.includes("check engine")) {
+        estimate = "$135 – $185";
+    } else if (issue.includes("pre-purchase") || issue.includes("inspection")) {
+        estimate = (vehicleType === "semi") ? "$320 – $420" : "$210 – $280";
+    } else if (issue.includes("brake")) {
+        estimate = (vehicleType === "semi") ? "$550 – $750" : "$380 – $480";
+    } else if (issue.includes("battery") || issue.includes("dead")) {
+        estimate = "$190 – $260";
+    } else if (issue.includes("no start") || issue.includes("starter")) {
+        estimate = (vehicleType === "semi") ? "$450 – $620" : "$310 – $410";
+    } else if (issue.includes("oil change")) {
+        estimate = (vehicleType === "semi") ? "$180 – $240" : "$110 – $160";
+    }
+
+    const vehicleDesc = `${year} ${make} ${model} ${engine}`.trim();
+
+    const resultHTML = `
+        <h3 style="color:#ff6600;">Estimated Price Range for your ${vehicleDesc}</h3>
+        <p style="font-size:32px; font-weight:bold; color:white;">${estimate}</p>
+        <p><strong>Issue:</strong> ${issueText}</p>
+        <p style="font-size:14px; color:#ccc;">
+            This is a ballpark estimate only.<br>
+            Exact price confirmed after on-site diagnosis.
+        </p>
+
+        <div class="contact-links">
+            <a href="tel:3608610024">📞 Call Now</a>
+            <a href="sms:3608610024">💬 Text Now</a>
+            <a href="mailto:rick@ricksmobilemechanic.com?subject=Quote for ${encodeURIComponent(vehicleDesc)}">✉️ Email Quote</a>
+        </div>
+    `;
+
+    document.getElementById("quoteResult").innerHTML = resultHTML;
+    document.getElementById("quoteResult").style.display = "block";
+});
+</script>
+</body>
+</html>
